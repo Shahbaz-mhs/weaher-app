@@ -62,7 +62,7 @@ app.get('/weather', (req, res) => {
     // })
 
 
-    geocode(address,(error, {latitude, longitude, temp} = {})=>{
+    geocode(address,(error, {latitude, longitude, temp, place} = {})=>{
         // console.log('Error', error)
         // console.log('Data',data)
         if(error){
@@ -72,23 +72,25 @@ app.get('/weather', (req, res) => {
          })
         }
        
-         forecast(latitude,longitude,(error,{name} = {}) => {
-           if(error){
-            // return console.log(error)
-             return res.send({
-                error
-             })
-           }
+        //  forecast(latitude,longitude,(error,{name} = {}) => {
+        //    if(error){
+        //     // return console.log(error)
+        //      return res.send({
+        //         error
+        //      })
+        //    }
           // console.log('Error', error)
            //console.log(data.latitude)
           // console.log(name)
            res.send({
-            address: name,
+            address: place,
             latitude,
             longitude,
-            temperature: temp+'C'
+            temperature: temp+'C',
+            
            })
-         })
+
+        //  })
        
        })
 

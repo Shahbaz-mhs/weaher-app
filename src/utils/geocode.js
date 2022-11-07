@@ -13,6 +13,7 @@ const geocode = (address, callback) => {
             latitude: body.location.lat,
             longitude: body.location.lon,
             temp: body.current.temperature,
+            place: body.request.query,
   
           })
       }
