@@ -14,6 +14,8 @@ const geocode = (address, callback) => {
             longitude: body.location.lon,
             temp: body.current.temperature,
             place: body.request.query,
+            humidity: body.current.feelslike,
+            windspeed: body.current.wind_speed,
   
           })
       }

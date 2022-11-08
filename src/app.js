@@ -62,7 +62,7 @@ app.get('/weather', (req, res) => {
     // })
 
 
-    geocode(address,(error, {latitude, longitude, temp, place} = {})=>{
+    geocode(address,(error, {latitude, longitude, temp, place, windspeed, humidity} = {})=>{
         // console.log('Error', error)
         // console.log('Data',data)
         if(error){
@@ -86,7 +86,9 @@ app.get('/weather', (req, res) => {
             address: place,
             latitude,
             longitude,
-            temperature: temp+'C',
+            temperature: temp+'°C',
+            humidity: humidity+'°C',
+            windspeed,
             
            })
 
